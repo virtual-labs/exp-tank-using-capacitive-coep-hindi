@@ -1,0 +1,493 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<meta name="experiment-short-name" content="tank-using-capacitive">
+<meta name="developer-institute" content="coep">
+<meta name="learning-unit" content="MEASUREMENT OF LEVEL IN A TANK USING CAPACITIVE TYPE LEVEL PROBE">
+<meta name="task-name" content="Theory">
+
+<!-- For iPhone -->
+<meta name="msapplication-TileColor" content="#4076e0">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#4076e0">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#4076e0">
+<title>वर्चुअल लैब्स</title>
+<link rel="shortcut icon" href="./assets/images/favicon.ico">
+<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+<link rel="stylesheet" href="./assets/css/vlabs-style.css">
+
+<script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<style>
+h1 {
+font-size: 1.8rem;
+}
+h2 {
+font-size: 1.4rem;
+}
+h3 {
+font-size: 1.2rem;
+}
+
+h2, h3 {
+font-weight: 800;
+}
+</style>
+</head>
+<body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+
+<header class="vlabs-header sticky-top bg-white">
+<nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+
+<button class="navbar-toggler px-4" type="button" onclick="toggle()">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="d-flex justify-content-center">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</div>
+
+<div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center">
+<ul class="navbar-nav ml-auto text-center d-flex flex-md-row">
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in">होम</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/participating-institutes">भागीदार</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/contact-us">संपर्क</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+<div class="row d-flex justify-content-between">
+<div class="flex-column">
+
+<div class="row py-4 px-4 breadcrumbs">
+<a href="https://www.vlab.co.in/broad-area-electrical-engineering">
+इलेक्ट्रिकल इंजीनियरिंग
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in">
+सेंसर्स मॉडलिंग और सिमुलेशन लैब
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in/List of experiments.html">
+प्रयोग
+</a>
+</div>
+
+</div>
+<div class="flex-column">
+<div id="plugin-bug-report"></div>
+<div id="plugin-rating"></div>
+</div>
+</div>
+<div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+<div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</h5>
+<button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body nav-menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+<div class="text-center fix-spacing">
+<h3 id="measurement-of-level-in-a-tank-using-capacitive-type-level-probe">कैपेसिटिव टाइप लेवल प्रोब का उपयोग करके एक टैंक में द्रव्य के स्तर का मापन</h3>
+
+</div>
+<h3 id="prerequisite"><strong>पूर्वापेक्षा</strong></h3>
+<p>इस प्रयोग को करने से पहले, छात्र को निम्न के बारे में ज्ञान होना चाहिए</p>
+<ol>
+<li><p>  एक सामान्य कपैसिटर का काम करना</p>
+</li>
+<li><p>  कैपेसिटर के प्रकार</p>
+</li>
+<li><p>विभिन्न कारकों के प्रभाव जो एक कैपेसिटर के मान को प्रभावित करतें हैं जैसे कि तापमान, उपयोग किए जाने वाले इन्सुलेटर का डाइलेक्ट्रिक कोंस्टंट, उपयोग की जाने वाली प्लेटों के बीच की दूरी आदि।</p>
+<h3 id="level-measurements"><strong>द्रव के स्तर का माप</strong></h3>
+</li>
+</ol>
+<p>उद्योग में, तरल पदार्थ जैसे पानी, रसायन, और सॉल्वैंट्स का उपयोग विभिन्न प्रक्रियाओं में किया जाता है। ऐसे  संग्रहीत तरल पदार्थ की मात्रा किसी कंटेनर या पात्र में तरल पदार्थ के स्तर को मापकर पाई जा सकती है। द्रव का स्तर न केवल वितरित मात्रा को प्रभावित करता है, बल्कि कंटेनर के अंदर और बाहर प्रवाह के दबाव और दर को भी प्रभावित करता है। लेवल सेंसर्स, पदार्थ के स्तर का पता लगाते हैं, जैसे कि तरल पदार्थ, स्लरी, दानेदार सामग्री और पाउडर्स।  मापा जाने वाला पदार्थ कंटेनर के अंदर हो सकता है या उसके प्राकृतिक रूप में हो सकता है (जैसे नदी या झील में)।  स्तर का माप या तो निरंतर या कुछ बिंदुओं पर हो सकता है।</p>
+<p><strong>कन्टीन्यूस लेवल सेंसर्स</strong> निरंतर तरीके से पदार्थ की सही मात्रा निर्धारित करने के लिए स्तर को मापते हैं।</p>
+<p><strong>पॉइंट-लेवल सेंसर्स</strong> संकेत देते है कि पदार्थ सेंसिंग पॉइंट से ऊपर है या नीचे।  टैंकों के अतिप्रवाह या खाली होने से बचने और पंपों को ड्राई रन से बचाने के लिए यह आवश्यक है।</p>
+<p>लेवल सेंसर के लिए चयन मानदंड होते हैं:</p>
+<ul>
+<li><p>भौतिक अवस्था (तरल, ठोस या घोल)</p>
+</li>
+<li><p>तापमान</p>
+</li>
+<li><p>दबाव या वैक्यूम</p>
+</li>
+<li><p>रसायन</p>
+</li>
+<li><p>माध्यम का डायइलेक्ट्रिक कोंस्टेंट</p>
+</li>
+<li><p>माध्यम का घनत्व (स्पेसिफिक ग्रेविटी)</p>
+</li>
+<li><p>उत्तेजना (गतिविधि)</p>
+</li>
+<li><p>अकूस्टिकल या इलेक्ट्रिक नॉइज़</p>
+</li>
+<li><p>कंपन</p>
+</li>
+<li><p>यांत्रिक आघात</p>
+</li>
+<li><p>टैंक या बिन का विस्तार और आकार</p>
+<p>अनुप्रयोग के दृष्टिकोण से विचार के पहलू हैं:</p>
+</li>
+</ul>
+<ul>
+<li>दाम</li>
+<li>सटीकता</li>
+<li>प्रतिक्रिया दर</li>
+<li>कैलिब्रेशन में आसानी</li>
+<li>भौतिक आकार और उपकरण का आलंबन </li>
+<li>निरंतर या असतत स्तरों की निगरानी या नियंत्रण</li>
+</ul>
+<p> स्तर माप को मोटे तौर पर दो समूहों में वर्गीकृत किया गया है:</p>
+<ul>
+<li>प्रत्यक्ष विधि</li>
+<li>अप्रत्यक्ष विधि</li>
+</ul>
+<p><strong>प्रत्यक्ष विधियों में,</strong>, सरल यांत्रिक उपकरणों के माध्यम से सीधे स्तर का संकेत दिया जाता है।  माप भौतिक घनत्व में परिवर्तन से प्रभावित नहीं होता है।  कुछ उदाहरण हैं:</p>
+<ul>
+<li>डिप स्टिक</li>
+<li>रेसिस्टेंस टेप्स</li>
+<li>साईट ग्लास</li>
+<li>फ्लोट्स</li>
+<li>अल्ट्रासोनिक </li>
+<li>रडार</li>
+</ul>
+<p><strong>अप्रत्यक्ष विधियों में,</strong>, स्तर को एक उपयुक्त ट्रांसड्यूसर का उपयोग करके एक मापने योग्य संकेत में परिवर्तित किया जाता है। पदार्थ में परिवर्तन माप को प्रभावित करता है। उपकरण को रीकेलिब्रेट करने में एक संशोधक गुणन खंड का उपयोग किया जाना चाहिए।  कुछ उदाहरण हैं:</p>
+<ul>
+<li>हाइड्रोस्टेटिक हेड मेथड्स</li>
+<li>लोड सेल</li>
+<li>कैपेसिटेंस</li>
+<li>कंडक्टिविटी</li>
+</ul>
+<p><em>कैपेसिटंस लेवल मेज़रमेंट:</em>
+स्तर के अप्रत्यक्ष मापन का उदाहरण है, कैपेसिटिव लेवल ट्रांसड्यूसर</p>
+<center><img src="images/Capacitive_Img.png"></center>
+
+<p>कैपेसिटेंस लेवल सेंसर्स का उपयोग विभिन्न प्रकार के ठोस, जलीय और ऑर्गेनिक तरल पदार्थ और स्लरी के लिए किया जाता है। इस तकनीक को अक्सर RF के रूप में संदर्भित किया जाता है, क्योंकि कैपेसिटंस सर्किट पर रेडियो फ्रीक्वेंसी सिग्नल्स लागू किया जाता है।  सेंसर्स को कम से कम 1.1 (कोक और फ्लाई ऐश) और अधिक से अधिक 88 (पानी) या उससे अधिक डाइलेक्ट्रिक कांस्टेंट्स वाले पदार्थ को मापने के लिए डिज़ाइन किया जा सकता है।  स्लजेस और स्लरी जैसे डीहायड्रेटेड केक और सीवेज स्लरी (डाइलेक्ट्रिक कॉन्स्टेंट लगभग 50) और तरल रसायन जैसे कि क्विकलाइम (डाइलेक्ट्रिक कॉन्स्टेंट लगभग 90) को भी माप सकते हैं।  डुअल-प्रोब कैपेसिटेंस लेवल सेंसर्स का उपयोग भी काफी हद्द तक भिन्न डाइलेक्ट्रिक कॉन्स्टेंट वाले दो इम्मीसिबल तरल पदार्थों के बीच इंटरफ़ेस को समझने के लिए किया जा सकता है।</p>
+<p>चूंकि कैपेसिटी लेवल सेंसर्स इलेक्ट्रॉनिक डिवाइसेस हैं , फेज़ मॉड्यूलेशन और उच्च फ्रीक्वेंसीज़ का उपयोग सेंसर को उन अनुप्रयोगों के लिए उपयुक्त बनाता है, जिनमें डाइलेक्ट्रिक कॉन्स्टेंट्स समान हैं।</p>
+<p><strong>कार्य सिद्धांत:</strong>
+कैपेसिटिव लेवल मेज़रमेंट का सिद्धांत कपैसिटंस  परिवर्तन पर आधारित है।  एक इंसुलेटेड इलेक्ट्रोड कपैसिटर की एक प्लेट के रूप में कार्य करता है और टैंक की दीवार (या एक गैर-धातु पात्र में रेफेरेंस इलेक्ट्रोड) दूसरी प्लेट के रूप में कार्य करती है। कपैसिटंस द्रव स्तर पर निर्भर करता है।  एक खाली टैंक का कम कपैसिटंस होता है जबकि भरे हुए टैंक का अधिक कपैसिटंस होता है।
+एक साधारण कपैसिटर में दो इलेक्ट्रोड प्लेट होती हैं, जो एक इन्सुलेटर की छोटी मोटाई जैसे ठोस, तरल, गैस या वैक्यूम से अलग की हुई होती हैं।  इस इन्सुलेटर को डाइलेक्ट्रिक भी कहा जाता है। C का मूल्य, उपयोग किये गये डाइलेक्ट्रिक, प्लेट के क्षेत्रफल और प्लेटों के बीच की दूरी पर निर्भर करता है।</p>
+<pre><code>      C = E (K A/d)
+</code></pre>
+<p>जहाँ:
+C = पिकोफैरेड्स (pF) में कपैसिटंस
+E = एक कांस्टेंट है, जिसे एब्सोल्युट पर्मिटिविटी  ऑफ़ फ्री स्पेस के नाम से जाना जाता है
+K = इन्सुलेटिंग सामग्री का रिलेटिव डाइलेक्ट्रिक कांस्टेंट
+A = कंडक्टर्स का प्रभावी क्षेत्र
+d  = कंडक्टर्स के बीच की दूरी
+कैपैसिटंस में इस बदलाव को AC ब्रिज का उपयोग करके मापा जा सकता है।</p>
+<p><strong>माप:</strong>
+कंडक्टिव प्रोब और पात्र की दीवार के बीच एक RF सिग्नल लागू करके मापन किया जाता है। RF सिग्नल के कारण प्रोब से पात्र की दीवार तक टैंक में डाइलेक्ट्रिक प्रोसेस मटेरियल के माध्यम से बहुत कम करंट प्रवाहित होता है।  जब टैंक में स्तर गिरता है, तो डाइलेक्ट्रिक कांस्टेंट गिरता है, जिससे कैपेसिटी रीडिंग में गिरावट आती है और करंट प्रवाह में बिलकुल कम गिरावट आती है।  इस परिवर्तन का पता लेवल स्विच के इंटरनल सर्किटरी द्वारा लगाया जाता है और पॉइंट लेवल डिटेक्शन के मामले में लेवल स्विच के रिले स्टेट में बदलाव हो जाता है। कन्टीन्यूस लेवल डिटेक्टर्स के मामले में, आउटपुट एक रिले स्टेट नहीं है बल्कि एक स्केल्ड एनालॉग सिग्नल है।</p>
+<p> स्तर माप को तीन श्रेणियों में विभाजित किया जा सकता है:</p>
+<ul>
+<li>गैर-प्रवाहकीय पदार्थ का मापन</li>
+<li>प्रवाहकीय पदार्थ का मापन</li>
+<li>गैर संपर्क मापन</li>
+</ul>
+<p><strong>गैर-संचालन पदार्थ :</strong>
+नॉन-कंडक्टिंग तरल पदार्थों के स्तर को मापने के लिए, बेअर प्रोब अरेंजमेंट का उपयोग किया जाता है क्योंकि  तरल प्रतिरोध काफी उच्च होता है, जिससे उसको डाइलेक्ट्रिक बनाया जा सके।  चूँकि इलेक्ट्रोड और टैंक एक जगह पर हैं, दूरी (d) स्थिर है, कैपेसिटंस का मान डाइलेक्ट्रिक के रूप में कार्य करने वाले पदार्थ  के स्तर के सीधे अनुपात में होता है।</p>
+<p><strong>कंडक्टिंग पदार्थ :</strong>
+कंडक्टिंग तरल पदार्थों में, प्रोब प्लेट्स को शार्ट सर्किटिंग से बचने के लिए कांच या प्लास्टिक की पतली कोटिंग का उपयोग करके इन्सुलेट किया जाता है।कंडक्टिव पदार्थ  कपैसिटर की ग्राउंड प्लेट के रूप में कार्य करता है।</p>
+<p>प्रोक्सिमिटी मेज़रमेंट्स (गैर-संपर्क प्रकार का माप):
+प्रॉक्सिमिटी लेवल मेज़रमेंट में कैपेसिटेंस प्लेटों का क्षेत्र निश्चित होता है, लेकिन प्लेटों के बीच की दूरी बदलती रहती है। प्रॉक्सिमिटी लेवल मेज़रमेंट लीनियर आउटपुट निर्माण नहीं करता है और जब स्तर कई इंच से भिन्न होता है तो इनका उपयोग किया जाता है।</p>
+<h3 id="advantages-of-capacitive-level-measurement"><strong>कैपेसिटिव लेवल मेज़रमेंट के लाभ:</strong></h3>
+<ol>
+<li>  तुलनात्मक रूप से सस्ती</li>
+<li>  बहुमुखी</li>
+<li>  विश्वसनीय</li>
+<li>  न्यूनतम रखरखाव की आवश्यकता</li>
+<li>  चल भाग नहीं होते</li>
+<li>  स्थापित करना आसान है और पात्रों के विभिन्न आकार के लिए आसानी से अनुकूलित किया जा सकता है</li>
+<li>  माप की अच्छी सीमा, कुछ सेंटीमीटर से लगभग 100 मीटर तक</li>
+<li>  मज़बूत</li>
+<li>  उपयोग करने में सरल</li>
+<li> साफ करने में आसान</li>
+<li> उच्च तापमान और दबाव अनुप्रयोगों के लिए डिज़ाइन किया जा सकता है।</li>
+</ol>
+<h3 id="applications"><strong>अनुप्रयोग:</strong></h3>
+<p>कपैसिटंस लेवल प्रोब्स का उपयोग, इनका स्तर मापने के लिए किया जाता है</p>
+<ul>
+<li>तरल पदार्थ</li>
+<li>पॉवडर्ड एंड ग्रैनुलर सॉलिड्स</li>
+<li>बहुत अधिक तापमान पर तरल धातु</li>
+<li>बहुत कम तापमान पर लिक्विफाइड गैसेस</li>
+<li>हाइड्रोफ्लोरिक अम्ल जैसे करोसिव पदार्थ</li>
+<li>बहुत उच्च दबाव वाली औद्योगिक प्रक्रियाएं।</li>
+</ul>
+<h2 id="disadvantages">नुकसान:</h2>
+<p>20 lb/ft3 से कम लाइट डेंसिटी मैटेरियल्स और 1/2 इंच व्यास से अधिक आकार वाले पदार्थ, उनके बहुत कम डाइलेक्ट्रिक कांस्टेंट्स (कणों के बीच हवा की बड़ी मात्रा के कारण) एक समस्या हो सकती है।</p>
+
+</div>
+</div>
+</div>
+<footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+<div class="row px-5 mx-0">
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">कम्युनिटी लिंक्स</span>
+<a href="https://www.sakshat.ac.in/" class="text-light">साक्षात पोर्टल</a>
+<a href="http://outreach.vlabs.ac.in/" class="text-light">आउटरीच पोर्टल</a>
+<a href="https://vlab.co.in/faq" class="text-light">FAQ: वर्चुअल लैब्स</a>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमसे संपर्क करें</span>
+<span> फोन: सामान्य जानकारी: 011-26582050 </span>
+<span> ईमेल: support@vlabs.ac.in </span>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमारा अनुसरण करें</span>
+<div class="social-links">
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+<i class="fa fa-twitter"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+<i class="fa fa-facebook"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+<i class="fa fa-youtube"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+<i class="fa fa-linkedin"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+<a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+&nbsp;&amp;&nbsp;
+<a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> क्रिएटिव कॉमन्स (CC BY-NC-SA 4.0) </a>
+</div>
+</footer>
+
+<script src="./assets/js/toggleSidebar.js"></script>
+
+
+
+</body></html>
